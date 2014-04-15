@@ -1,17 +1,16 @@
-#include <iostream>
+#include <stdexcept>
 
-class injector_exception
+class injector_exception : public std::runtime_error
 {
 	public:
 		injector_exception(const std::wstring& err, long line)
-			:error_text_(err), error_line_(line)
-		{}
-		virtual ~injector_exception() throw()
+			:std::runtime_error(""),
+			error_text_(err), error_line_(line)
 		{}
 
-		void show_error() const
+		const std::wstring& get_error() const
 		{
-			std::wcout<<"Exception: "<<error_text_.c_str()<<" | Code: "<<std::showbase<<std::hex<<GetLastError()<<std::dec<<" | Line: "<<error_line_<<std::endl;
+			return error_text_;
 		}
 		
 	private:

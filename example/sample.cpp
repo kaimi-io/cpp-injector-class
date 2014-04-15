@@ -1,3 +1,5 @@
+#include <iostream>
+
 #include "injector.hpp"
 
 int main()
@@ -11,7 +13,7 @@ int main()
 	}
 	catch(const injector_exception &e)
 	{
-		e.show_error();
+		std::wcout << e.get_error() << std::endl;
 	}
 	
 	return 0;
