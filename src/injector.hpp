@@ -17,7 +17,7 @@ class injector
 		injector();
 		injector(const injector &inj);
 		~injector();
-		injector& injector::operator=(const injector& inj);
+		injector& operator=(const injector& inj);
 
 		void inject(const std::wstring& proc_name, const std::wstring& dll_name);
 		void inject(const std::wstring& proc_name, const BYTE * code, unsigned long int code_size);
